@@ -19,6 +19,7 @@
 module Servant.Contrib.RegexHttpApiData (
     RE,
     mk,
+    unsafeMk,
     original,
     groups,
     ) where
@@ -27,6 +28,8 @@ import           Data.Maybe
                  (fromJust)
 import           Data.Proxy
                  (Proxy (..))
+import           Data.Semigroup
+                 ((<>))
 import qualified Data.Text       as T
 import           Data.Typeable
                  (Typeable)
@@ -90,7 +93,10 @@ groups (RE _ gs) = gs
 -------------------------------------------------------------------------------
 
 instance KnownSymbol re => FromHttpApiData (RE re) where
-    parseUrlPiece = maybe (Left "doesn't match regex") Right . mk
+    parseUrlPiece =
+        maybe (Left $ "doesn't match regex: " <> regexStr) Right . mk
+      where
+        regexStr = T.pack $ symbolVal (Proxy :: Proxy re)
 
 instance ToHttpApiData (RE re) where
     toUrlPiece = original
