@@ -1,2 +1,1 @@
-module Servant.Contrib (
-) where
+module Servant.Contrib () where
