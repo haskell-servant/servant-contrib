@@ -1,8 +1,10 @@
-resolver: nightly-2016-12-31
-
+resolver: nightly-2017-06-01
 packages:
 - "servant-contrib"
 - "servant-client-contrib"
 - "servant-server-contrib"
-
+extra-deps:
+- servant-0.11
+- servant-server-0.11
+- servant-client-0.11
 flags: {}
