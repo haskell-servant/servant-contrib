@@ -1,2 +1,0 @@
-module Servant.Contrib (
-) where

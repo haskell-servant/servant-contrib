@@ -30,6 +30,7 @@ library
   exposed-modules:
     Servant.Contrib
     Servant.Contrib.RegexHttpApiData
+    Servant.Contrib.ManyQueryParams
   build-depends:
       base            >= 4.7  && <4.10
     , servant         == 0.11.*

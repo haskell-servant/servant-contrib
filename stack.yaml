@@ -7,4 +7,5 @@ extra-deps:
 - servant-0.11
 - servant-server-0.11
 - servant-client-0.11
+- generics-sop-0.3.0.0
 flags: {}
